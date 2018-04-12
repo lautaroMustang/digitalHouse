@@ -1,0 +1,86 @@
+
+-- Conectarse a mysql por php
+<?php
+  $dsn = 'mysql:host=localhost;dbname=peliculas;
+  charset=utf8mb4;port:3306';
+  $db_user = 'root';
+  $db_pass = '123456';
+  $db = new PDO($dsn, $db_user, $db_pass);
+?>
+
+A: Atomicidad.
+C: Consistencia.
+I: Isolated (Aislamiento).
+D: Durabilidad.
+Un SGBD es transaccional cuando respeta el ACID.
+
+Start transaction;
+Consulta1
+Consulta2...
+
+Commit;
+Rollback;
+
+Ope Significado
+= Igual a
+> Mayor que
+>= Mayor o igual que
+< Menor que
+<= Menor o igual que
+<>, != Diferente a
+Ope Significado
+  ● IS NULL Es nulo
+  ● BETWEEN Entre dos valores
+  ● IN Lista de valores
+  ● LIKE Se ajusta a ‘%valo%’
+● AND y OR IN para condiciones where
+  ● OR => (campo1 LIKE '%de%'
+         OR campo1 LIKE '%ll%')
+         AND campo2 LIKE '%a%'
+  ● IN => SELECT campos FROM tabla
+      WHERE campo1 IN (valor1, valor2,... valorn)
+
+      ● COUNT()
+      ● MIN()
+      ● MAX()
+      ● SUM()
+      ● AVG()
+      ● CONCAT(title, ' (', year(release_date), ')');
+      ● COALESCE(expr1, expr2, ...., expr_n)--(movil,home,work)returns the first non-null expression in a list.
+      ● DATEDIFF(interval, date1, date2) --(year, '2017/08/25', '2011/08/25') returns the difference between two date values, based on the interval specified
+      ● EXTRACT(MONTH FROM "2017-06-15");
+      ● LENGTH("SQL Tutorial") AS LengthOfString;
+      ● REPLACE(str, find_string, replace_with);
+      ● DATE_FORMAT(date, format_mask)--SELECT DATE_FORMAT("2017-06-15", "%W %M %e %Y");
+      ● CASE
+          -- SELECT OrderID, Quantity,
+          -- CASE
+          --   WHEN Quantity > 30 THEN "The quantity is greater than 30"
+          --   WHEN Quantity = 30 THEN "The quantity is 30"
+          --   ELSE "The quantity is something else"
+          -- END
+          -- FROM OrderDetails;
+      ● DISTINCT --return only distinct (different) value
+
+  ● SELECT COUNT (id) AS total FROM movies WHERE genre_id=3;
+  ● GROUP BY // HAVING
+      SELECT commision, count(*) FROM agents
+        GROUP BY commision
+        HAVING count(*)>3
+
+  ● AS => SELECT concat(title, ' (', year(release_date), ')') AS mi_pelicula FROM movies;
+  ● ORDER BY title DESC / ASC
+  ● LIMIT [inicio_registro,] cantidad_registros
+  ● SELECT campos FROM tablaA t1
+      INNER JOIN tablaB t2
+      on t1.campo1 = t2.campo2 [using (campo)] --La cláusula USING nos permite usar una lista de atributos que deben ser iguales en las dos tablas a componer.
+      -- ejemplo de uso de  USING--(SELECT * FROM personas2 JOIN telefonos2 USING(id);)
+
+  ● EXISTS
+      SELECT campos FROM tabla WHERE [NOT] EXISTS ( subquery )
+  ●
+  ●
+  ●
+  ●
+  ●
+  ●
