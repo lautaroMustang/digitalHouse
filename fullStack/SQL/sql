@@ -78,9 +78,42 @@ Ope Significado
 
   ● EXISTS
       SELECT campos FROM tabla WHERE [NOT] EXISTS ( subquery )
-  ●
-  ●
-  ●
-  ●
-  ●
-  ●
+
+      ---------DML----------
+  ●INSERT INTO nombre_de_tabla (campo1, campo2, campo4) VALUES (valor_campo_1, valor_campo_2, valor_campo4);
+  ●DELETE FROM nombre_de_tabla [WHERE condición];
+  ●UPDATE nombre_de_tabla
+    SET campo1 = nuevo_valor_1 [, campo2 = nuevo_valor_2]
+    [WHERE condición];
+
+  ---------DDL----------
+● INTEGER (INT)  ○ -2,147,483,648 - 2,147,483,647  ○ Unsigned 0 - 4,294,967,295
+● TINYINT   ○ -128 - 127  ○ Unsigned 0 - 255
+● BOOLEAN → No lo usen, mejor TINYINT UNSIGNED
+● SMALLINT, MEDIUMINT, BIGINT
+● INTEGER AUTO_INCREMENT
+● DECIMAL (dígitos totales, dígitos decimales)
+● FLOAT ○ Puede derivar en problemas de precisión
+● CHAR(100) → 100 caracteres (siempre)
+● VARCHAR(100) → 100 caracteres (como máximo)
+● TEXT → Texto libre (post de un blog)
+● ENUM (‘mal’, ‘regular’, ‘bien’, ‘muy bien’, ‘sobresaliente’)
+● DATE
+● TIME
+● DATETIME
+        --Constrains---
+    ● PRIMARY KEY (hacer NOT NULL)
+    ● UNIQUE
+    ● DEFAULT
+    ● NOT NULL
+●
+CREATE TABLE nombre_de_la_tabla (
+     columna1 TIPO_DE_DATO [NULL | NOT NULL] [DEFAULT valor] [PRIMARY KEY],
+     columna2 TIPO_DE_DATO
+    );
+●
+DROP TABLE [ IF EXISTS ] nombre_de_tabla;
+ALTER TABLE nombre_de_tabla
+  ADD columna3 TIPO_DE_DATO... [FIRST | AFTER columna2 ];
+  MODIFY columna1 TIPO_NUEVO_DE_DATO;
+  DROP columna4;
