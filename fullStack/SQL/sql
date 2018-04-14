@@ -60,7 +60,7 @@ Ope Significado
           --   ELSE "The quantity is something else"
           -- END
           -- FROM OrderDetails;
-      ● DISTINCT --return only distinct (different) value
+      ● DISTINCT SELECT DISTINCT column1 FROM table_name;--return only distinct (different) value
 
   ● SELECT COUNT (id) AS total FROM movies WHERE genre_id=3;
   ● GROUP BY // HAVING
