@@ -45,4 +45,13 @@ Route::get('resultado/{numero}/{num2?}', function($numero, $num2=null){ //funcio
     return $numero*$num2;
   }
 
+
+
 });
+
+  //Route::get('/saludo/{hola}','SaludoControlador@index');
+    Route::get('/saludo/{saludo}','SaludoControlador@index');
+    Route::get('/peliculas/{id}','PeliculasController@buscarPeliculaId');
+    Route::get('/peliculas/buscar/{nombre}','PeliculasController@buscarPeliculaNombre');
+    Route::get('/peliculas','PeliculasController@index');
+    Route::get('/actores','ActorController@directory​');
