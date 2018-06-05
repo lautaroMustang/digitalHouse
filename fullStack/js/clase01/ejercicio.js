@@ -35,10 +35,10 @@ switch (numero) {
 }
 function numerosPares() {
   var contador=1;
-  while (contador<100) {
-    if (contador%2==0) {
-      console.log(contador);;
-    }
-    contador++;
+do {
+  if (contador%2==0) {
+    console.log(contador);;
   }
+  contador++;
+} while (contador<100);
 }
