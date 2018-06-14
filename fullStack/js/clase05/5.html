@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="body" >
+
+    <button type="button" name="button">Saludar</button>
+    <button type="button" name="button" id="cambiaFondo">cambiar Fondo</button>
+    <img src="logo.png" alt="">
+    <img src="logo.png" class="img2" alt="">
+    <form id="formulario" action="http://www.google.com" method="get">
+      <button type="submit" name="button">ir a google</button>
+    </form>
+    <script>
+      var button=document.querySelector('button');
+      button.addEventListener("click",function () {
+      alert("hola!");
+    });
+      document.getElementById('cambiaFondo').onclick=function () {
+        body.setAttribute('style','background-color:green');
+      }
+      document.querySelector('img').onmouseover=function () {
+        console.log('viendo');
+        console.log(event.clientX);
+        console.log(event.clientY);
+      }
+
+    document.querySelector('.img2').addEventListener('click',function () {
+      console.log('click');
+      console.log(event.clientX);
+      console.log(event.clientY);
+    })
+
+    function cambiarMiColor() {
+      this.setAttribute('style','background-color:red')
+    }
+    document.querySelector('body').addEventListener('click',cambiarMiColor);
+    document.querySelector('body').removeEventListener('click',cambiarMiColor);
+
+      document.getElementById('formulario').addEventListener('click',function (event) {
+      event.preventDefault();
+      alert('aaah');
+    });
+    </script>
+  </body>
+</html>
