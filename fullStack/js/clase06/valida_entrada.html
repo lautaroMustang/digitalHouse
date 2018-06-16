@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+        <!–Programa muy simple para demostrar las validaciones usando Javascrip –>
+        <!–MSc Angel Daniel Fuentes – Digital House –>
+        <head>
+        <title>Demostración sencilla de como se valida usando Javascrip</title>
+            <meta charset="utf8">
+        </head>
+<body>
+
+<h1 id="fondo">Pasa el mouse sobre mí</h1>
+
+
+<button>Clickeame si quieres el fondo de color azul</button>
+
+<form name="fvalida" id="formulario">
+        <table>
+        <tr>
+        <td>Nombre: </td>
+        <td><input required type="text" id = "nombre" name="nombre" size="30" maxlength="100"></td>
+        </tr>
+        <tr>
+        <tr>
+        <td>DNI: </td>
+        <td><input type="text" id = "dni" name="dni"></td>
+        </tr>
+        <tr>
+        <td>Edad: </td>
+        <td><input type="text" id = "edad" name="edad" size="3" maxlength="2"></td>
+        </tr>
+        <tr>
+        <td>Nivel Académico:</td>
+        <td>
+        <select id= "nivel" name="nivel">
+        <option value="Elegir">Seleccione</option>
+        <option value="Bachiller">Bachiller</option>
+        <option value="TSU">Técnico Superior Universitario</option>
+        <option value="Universitario">Universitario</option>
+        <option value="Especialización">Especialización</option>
+        <option value="Maestria">Maestría</option>
+        <option value="Doctorado">Doctorado</option>
+        <option value="Post Doctorado">Post Doctorado</option>
+        </select>
+        </td>
+        </tr>
+
+        <tr>
+        <td>Sexo:</td>
+        <td>
+          <input name="sexo" id="mujer" type="checkbox" value="M">
+          <label for="mujer">Mujer</label>
+          <input name="sexo" type="checkbox" value="H">Hombre</input>
+        </td>
+        </tr>
+
+        <tr>
+        <td>Comentarios:</td>
+        <td>
+          <textarea name="comentarios" id="comentarios" rows="6"></textarea>
+        </td>
+        </tr>
+        <tr>
+            <td colspan='2' align="center">
+              <input type="reset" value="Borrar">
+              <input type="submit" value="Enviar">
+            </td>
+        </tr>
+        </table>
+        </form>
+
+        <form action="https://www.google.com/search" method="POST">
+          <input type="text" name="q" placeholder="Buscar en Google">
+          <input type="submit" value="Enviar">
+        </form>
+
+
+<!-- Validaciones en Javascript-->
+<script>
+
+    document.getElementById("fondo").addEventListener("mouseover", mouseOver);
+    document.getElementById("fondo").addEventListener("mouseout", mouseOut);
+    document.fvalida.onsubmit = valida_envia_datos
+
+    document.fvalida.elements.nivel.onchange = function () {
+      alert('cambio el nivel: ' + document.fvalida.elements.nivel.value)
+    }
+
+    function mouseOver() {
+        document.getElementById("fondo").style.color = "red";
+    }
+
+    function mouseOut() {
+        document.getElementById("fondo").style.color = "black";
+    }
+
+//Ejecutando efecto sobre el fondo de la pantalla
+
+    var documento = document.querySelector("body");
+    var boton = document.querySelector("button");
+    boton.addEventListener('click', cambiarColor);
+
+    function cambiarColor() {
+        documento.style.backgroundColor= "blue";
+
+    }
+
+    function valida_envia_datos(evento){
+      evento.preventDefault()
+//valido el nombre
+if (document.getElementById('nombre').value.length===0){
+ alert('Indique su nombre, este campo no lo puede dejar en blanco');
+ document.fvalida.elements.nombre.focus();
+ return 0;
+}
+
+var regDNI = /\d{8}/
+if (!regDNI.test(document.fvalida.dni.value)) {
+  return alert("Ingrese un DNI valido de 8 caracteres")
+}
+
+//valido la edad. tiene que ser entero mayor que 18
+//edad = document.fvalida.edad.value;
+
+if (document.getElementById('formulario').elements['edad'].value==""){
+ alert('Tiene que indicar su edad.');
+ document.fvalida.edad.focus();
+ return 0;
+ }else{
+ if (document.getElementById('edad').value <18){
+  alert('Debe ser mayor de edad.');
+  document.fvalida.edad.focus();
+  return 0;
+}
+}
+
+//valido el Nivel Académico
+//if (document.fvalida.nivel.selectedIndex==0){
+if (document.getElementById('nivel').selectedIndex==0){
+    alert('Debe seleccionar un Nivel de Estudio.');
+    document.fvalida.nivel.focus();
+    return 0;
+}
+  if(document.getElementById("comentarios").value === "" ) {
+    return alert("Ingrese un comentario");
+  }
+
+//Aquí se simula que se estan enviando los datos del formulario
+alert('Muchas gracias por practicar y enviar estos datos');
+document.fvalida.submit();
+}
+//Con la instrucción  /script> se cierra el scrip de javascript
+
+
+</script>
+</body>
+</html>
