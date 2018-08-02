@@ -64,6 +64,7 @@
       function isPasswordValid() {
         // var password = signinForm.elements.
         var { password } = signinForm.elements
+        console.log(password);
         if (password.value.length === 0) {
           password.classList.add('is-invalid')
           alert('El campo password es obligatorio')
