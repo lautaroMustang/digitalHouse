@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    products veganos.
+    Usuario: pueda comprar varios products y cantidades. COMBOS. Le de un total. Y envié un mail con el pedido, tanto al usuario como al vendedor.
+    Tiene que tener un carrito.
+    Sin login(?)
+    Pide datos al presionar en comprar.
+    STOCK (?)
+    Categoria de products
+    Precio y porcentaje de ganancia Para ADMIN
+    Product / SubCategory / Presentation / Category / Photo / Combo / Neighborhood / Cart / Item / User
+
+    PRODUCT:
+      name
+      price
+      profit
+      description
+      has many photos
+      has many presentations
+      belongs to category
+
+    Presentation
+      name
+      description
+      belongs to one product
+
+    Photo
+      name
+      url
+      description
+      belongs to one product
+
+    Category
+      name
+      description
+      has many products
+
+  </body>
+</html>
