@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -42,3 +43,64 @@
 
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    products veganos.
+    Usuario: pueda comprar varios products y cantidades. COMBOS. Le de un total. Y envié un mail con el pedido, tanto al usuario como al vendedor.
+    Tiene que tener un carrito.
+    Sin login(?)
+    Pide datos al presionar en comprar.
+    STOCK (?)
+    Categoria de products
+    Precio y porcentaje de ganancia Para ADMIN
+    Product / SubCategory / Presentation / Category / Photo / ComboPack / Neighborhood / Cart / Item / User
+
+    PRODUCT:
+      name
+      price
+      profit
+      description
+      has many photos
+      has many SubCategories
+      belongs to category
+      belongs to one cart
+      belongs to may ComboPacks
+      isSold
+    ComboPack
+      name
+      description
+      price
+      profit
+      has many photos
+      Has many products
+    SubCategory
+      name
+      description
+      has many Presentations
+      has many products
+    Presentation
+      name
+      description
+      belongs to one SubCategory
+    Cart
+      has many products
+      quantity
+    Photo
+      name
+      url
+      description
+      belongs to one product
+    Category
+      name
+      description
+      has many products
+
+  </body>
+</html>
+>>>>>>> 76fd2a0687b502f48d2dd49e311014ba2ecc0dcb
